@@ -1,7 +1,5 @@
-# clibcdc-linux
-
-Introduction to LibCDC
-----------------------
+Introduction to cLibCDC
+-----------------------
 
 The LibCDC library intended usage is to provide programming language means for communication 
 between PC and IQRF USB device, equipped with the firmware supporting the USB CDC IQRF mode.  
