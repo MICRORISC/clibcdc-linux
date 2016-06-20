@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.2)
+
 set(project cdc)
 
 set(cdc_SRC_FILES
