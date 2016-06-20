@@ -3,9 +3,9 @@
 MACHINE="$1"
 BIN_DIR_NAME="`pwd`/bin/usr"
 
-# if machine is empty defaukt is RPI
+# if machine is empty default is arm
 if [ "x$1" = "x" ]; then
-	MACHINE="RPI"
+	MACHINE="arm"
 fi
 
 BUILD_DIR_NAME=".build-$MACHINE"
@@ -15,11 +15,15 @@ if [ ! -d "$BUILD_DIR_NAME" ]; then
 fi
 
 pushd "$BUILD_DIR_NAME"
-if [ "$MACHINE" = "RPI" ]; then
+
+echo "Configuring for $MACHINE"
+
+if [ "$MACHINE" = "arm" ]; then
 	cmake -DCMAKE_TOOLCHAIN_FILE=../RPI-cross.cmake ../ -DCMAKE_INSTALL_PREFIX:PATH="$BIN_DIR_NAME" -DMACHINE="${MACHINE}" || exit 1
-else
-# build for x86
-	cmake ../ || exit 1
+elif [ "$MACHINE" = "x86" ]; then
+	cmake -DCMAKE_TOOLCHAIN_FILE=../x86.cmake ../ -DCMAKE_INSTALL_PREFIX:PATH="$BIN_DIR_NAME" -DMACHINE="${MACHINE}" || exit 1
+elif [ "$MACHINE" = "pc" ]; then
+	cmake ../ -DCMAKE_INSTALL_PREFIX:PATH="$BIN_DIR_NAME" -DMACHINE="${MACHINE}" || exit 1
 fi
 
 # build
