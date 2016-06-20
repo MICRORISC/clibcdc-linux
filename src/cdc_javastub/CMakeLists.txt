@@ -10,7 +10,7 @@ if (JNI_FOUND)
 	include_directories(${JNI_INCLUDE_DIRS})
 endif()
 
-set(src/cdc_javastub_SRC_FILES
+set(cdc_javastub_SRC_FILES
 	CDCLib_JavaStub.cpp
 )
 
