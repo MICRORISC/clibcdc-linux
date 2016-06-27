@@ -19,7 +19,7 @@ pushd "$BUILD_DIR_NAME"
 echo "Configuring for $MACHINE"
 
 if [ "$MACHINE" = "arm" ]; then
-	cmake -DCMAKE_TOOLCHAIN_FILE=../RPI-cross.cmake ../ -DCMAKE_INSTALL_PREFIX:PATH="$BIN_DIR_NAME" -DMACHINE="${MACHINE}" || exit 1
+	cmake -DCMAKE_TOOLCHAIN_FILE=../arm.cmake ../ -DCMAKE_INSTALL_PREFIX:PATH="$BIN_DIR_NAME" -DMACHINE="${MACHINE}" || exit 1
 elif [ "$MACHINE" = "x86" ]; then
 	cmake -DCMAKE_TOOLCHAIN_FILE=../x86.cmake ../ -DCMAKE_INSTALL_PREFIX:PATH="$BIN_DIR_NAME" -DMACHINE="${MACHINE}" || exit 1
 elif [ "$MACHINE" = "pc" ]; then
