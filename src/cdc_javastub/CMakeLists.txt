@@ -19,4 +19,6 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_library(${project} SHARED ${cdc_javastub_SRC_FILES})
 
+target_link_libraries(${project} cdc)
+
 install(TARGETS ${project} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
