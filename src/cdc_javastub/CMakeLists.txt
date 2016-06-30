@@ -11,6 +11,12 @@ if (JNI_FOUND)
 endif()
 
 set(cdc_javastub_SRC_FILES
+	${CMAKE_SOURCE_DIR}/src/CDCImpl.cpp
+	${CMAKE_SOURCE_DIR}/src/CDCImplException.cpp
+	${CMAKE_SOURCE_DIR}/src/CDCMessageParser.cpp
+	${CMAKE_SOURCE_DIR}/src/CDCMessageParserException.cpp
+	${CMAKE_SOURCE_DIR}/src/CDCReceiveException.cpp
+	${CMAKE_SOURCE_DIR}/src/CDCSendException.cpp
 	CDCLib_JavaStub.cpp
 )
 
@@ -19,6 +25,6 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_library(${project} SHARED ${cdc_javastub_SRC_FILES})
 
-target_link_libraries(${project} cdc)
+#target_link_libraries(${project} cdc)
 
 install(TARGETS ${project} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
